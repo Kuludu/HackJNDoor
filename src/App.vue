@@ -1,5 +1,5 @@
 <template>
-  <QRCode></QRCode>
+  <QRCode class="mt-3"></QRCode>
 </template>
 
 <script>

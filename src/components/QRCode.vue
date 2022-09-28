@@ -8,7 +8,7 @@
         <b class="mb-3">二维码内容值：{{ qr_content }}</b>
       </b-row>
       <b-row>
-        <b-button @click="start" class="mb-3">开始模拟二维码</b-button>
+        <b-button @click="start" class="mb-3">开始模拟二维码(强制刷新)</b-button>
       </b-row>
       <b-row>
         <b-col>
@@ -32,14 +32,17 @@ export default {
       qrcode: null
     }
   },
+  mounted() {
+    this.qrcode = new QRCode(document.getElementById("qrcode"))
+  },
   methods: {
     start() {
-      this.qrcode = new QRCode(document.getElementById("qrcode"))
       this.update()
       clearInterval(this.timer)
       this.timer = setInterval(this.update, 7000)
     },
     update() {
+      this.qrcode.clear()
       let qr_content = "user_" + this.user_id + "_" + Math.floor(Date.now() / 1000)
       this.qr_content = qr_content
       console.log(qr_content)
