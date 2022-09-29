@@ -11,6 +11,10 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
+            path: '/',
+            component: QRCode
+        },
+        {
             path: '/user/:id',
             component: QRCode
         },

@@ -42,7 +42,9 @@ export default {
   },
   mounted() {
     this.user_id = this.cookies.get("user_id")
-    this.user_id = this.$route.params['id']
+    if (this.$route.params['id'] !== undefined) {
+      this.user_id = this.$route.params['id']
+    }
     this.qrcode = new QRCode(document.getElementById("qrcode"), {
       colorDark : "#53a351",
       width: 256,
@@ -51,7 +53,7 @@ export default {
   },
   methods: {
     start() {
-      this.cookies.set("user_id", this.user_id)
+      this.cookies.set("user_id", this.user_id, 2592000)
       this.update()
       clearInterval(this.timer)
       this.timer = setInterval(this.update, 7000)
