@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import QRCode from "@/components/QRCode";
+import QRCode from "@/components/QRCode"
 
 export default {
   name: 'App',

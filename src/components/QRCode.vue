@@ -10,6 +10,9 @@
       <b-row>
         <b-button @click="start" class="mb-3">开始模拟二维码(强制刷新)</b-button>
       </b-row>
+      <b-row>
+        <b-button class="mb-3">模拟校园通界面</b-button>
+      </b-row>
       <b-row class="justify-content-md-center">
         <b-col class="col-md-auto">
           <div id="qrcode"></div>
@@ -21,7 +24,7 @@
 
 <script>
 import QRCode from 'qrcodejs2'
-import { useCookies } from "vue3-cookies";
+import { useCookies } from "vue3-cookies"
 
 export default {
   name: "QRCode",
@@ -34,11 +37,12 @@ export default {
     }
   },
   setup() {
-    const { cookies } = useCookies();
-    return { cookies };
+    const { cookies } = useCookies()
+    return { cookies }
   },
   mounted() {
-    this.user_id = this.cookies.get("user_id");
+    this.user_id = this.cookies.get("user_id")
+    this.user_id = this.$route.params['id']
     this.qrcode = new QRCode(document.getElementById("qrcode"), {
       colorDark : "#53a351",
       width: 256,
