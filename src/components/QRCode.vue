@@ -11,7 +11,7 @@
         <b-button @click="start" class="mb-3">开始模拟二维码(强制刷新)</b-button>
       </b-row>
       <b-row>
-        <b-button class="mb-3">模拟校园通界面</b-button>
+        <b-button @click="sim" class="mb-3">模拟校园通界面(尚未完成)</b-button>
       </b-row>
       <b-row class="justify-content-md-center">
         <b-col class="col-md-auto">
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import QRCode from 'qrcodejs2'
+import QRCode from "qrcodejs2"
 import { useCookies } from "vue3-cookies"
 
 export default {
@@ -42,11 +42,11 @@ export default {
   },
   mounted() {
     this.user_id = this.cookies.get("user_id")
-    if (this.$route.params['id'] !== undefined) {
-      this.user_id = this.$route.params['id']
+    if (this.$route.params["id"] !== undefined) {
+      this.user_id = this.$route.params["id"]
     }
     this.qrcode = new QRCode(document.getElementById("qrcode"), {
-      colorDark : "#53a351",
+      colorDark: "#53a351",
       width: 256,
       height: 256
     })
@@ -56,7 +56,7 @@ export default {
       this.cookies.set("user_id", this.user_id, 2592000)
       this.update()
       clearInterval(this.timer)
-      this.timer = setInterval(this.update, 7000)
+      this.timer = setInterval(this.update, 4000)
     },
     update() {
       this.qrcode.clear()
@@ -66,6 +66,10 @@ export default {
 
       this.qrcode.clear()
       this.qrcode.makeCode(qr_content)
+    },
+    sim() {
+      clearInterval(this.timer)
+      this.$router.push({path: "/sim/" + this.user_id})
     }
   }
 }

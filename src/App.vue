@@ -1,15 +1,10 @@
 <template>
-  <QRCode class="mt-3"></QRCode>
+  <router-view class="mt-3" />
 </template>
 
 <script>
-import QRCode from "@/components/QRCode"
-
 export default {
-  name: 'App',
-  components: {
-    QRCode
-  }
+  name: 'App'
 }
 </script>
 

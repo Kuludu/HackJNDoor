@@ -3,6 +3,7 @@ import App from './App.vue'
 import BootstrapVue3 from 'bootstrap-vue-3'
 import { createRouter, createWebHistory } from 'vue-router'
 import QRCode from '@/components/QRCode'
+import JNSim from '@/components/JNSim'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
@@ -18,6 +19,10 @@ const router = createRouter({
             path: '/user/:id',
             component: QRCode
         },
+        {
+            path: '/sim/:id',
+            component: JNSim
+        }
     ]
 })
 
