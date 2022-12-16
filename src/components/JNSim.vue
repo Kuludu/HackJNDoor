@@ -1,12 +1,6 @@
 <template>
   <div>
-    <b-container class="align-middle">
-      <b-row>
-        <b-col class="col-md-auto">
-          <div id="qrcode"></div>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div id="qrcode" />
   </div>
 </template>
 
@@ -25,9 +19,7 @@ export default {
       this.user_id = this.$route.params["id"]
     }
     this.qrcode = new QRCode(document.getElementById("qrcode"), {
-      colorDark: "#53a351",
-      width: 256,
-      height: 256
+      colorDark: "#53a351"
     })
     this.update()
     setInterval(this.update, 4000)
@@ -47,5 +39,10 @@ export default {
 </script>
 
 <style scoped>
-
+#qrcode {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
 </style>

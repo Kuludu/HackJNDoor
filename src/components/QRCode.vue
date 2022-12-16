@@ -11,7 +11,7 @@
         <b-button @click="start" class="mb-3">开始模拟二维码(强制刷新)</b-button>
       </b-row>
       <b-row>
-        <b-button @click="sim" class="mb-3">模拟校园通界面(尚未完成)</b-button>
+        <b-button @click="sim" class="mb-3">二维码快捷链接</b-button>
       </b-row>
       <b-row class="justify-content-md-center">
         <b-col class="col-md-auto">
@@ -76,5 +76,10 @@ export default {
 </script>
 
 <style scoped>
-
+#qrcode {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
 </style>
