@@ -1,24 +1,9 @@
-# hackjndoor
+# HackJNDoor - 让江大校园通更好用
 
-## Project setup
-```
-yarn install
-```
+[中文文档](https://docs.qq.com/doc/DU0xIYXN5QmJ0VEtu)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Build production version
 
-### Compiles and minifies for production
+```bash
+yarn build 
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
