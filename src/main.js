@@ -1,12 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import BootstrapVue3 from 'bootstrap-vue-3'
+import BootstrapVueNext from 'bootstrap-vue-next'
 import { createRouter, createWebHistory } from 'vue-router'
 import QRCode from '@/components/QRCode'
 import JNSim from '@/components/JNSim'
 
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+import './registerServiceWorker'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,7 +28,7 @@ const router = createRouter({
 })
 
 const app = createApp(App)
-app.use(BootstrapVue3)
+app.use(BootstrapVueNext)
 app.use(router)
 router.isReady().then(() => {
     app.mount('#app')
